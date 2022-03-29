@@ -167,9 +167,14 @@ function switchNightMode(){
 }
 
 // BUTTON APPLY FONT SIZE
-function setFontSize(num, value){
+function setFontSize(){
+    let numValue = document.getElementById('cNumber').value;
     if(document.body){
-        
+        if(numValue >= 8 && numValue <= 10){
+            document.querySelectorAll('p').style.value = numValue;
+        } else {
+            alert(`This value is not allowed to be applied`);
+        }
     } else throw new Error('No Support');
 }
 
