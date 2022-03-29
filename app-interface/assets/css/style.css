@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+:root {
+    --clr: #222327;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    margin-top: 30%;
+    background: var(--clr);
+}
+.navigation {
+    position: absolute;
+    width: 360px;
+    height: 70px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.boxContent {
+    position: absolute;
+    width: 360px;
+    height: 400px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    margin-top: -50%;
+    margin-bottom: -2%;
+    color: #000;
+}
+.navigation ul {
+    display: flex;
+    width: 350px;
+}
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.5em;
+    text-align: center;
+    transition: 0.5s;
+    color: var(--clr);
+}
+.navigation ul li.active a .icon {
+    transform: translateY(-32px);
+}
+.navigation ul li a .text {
+    position: absolute;
+    color: var(--clr);
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+.navigation ul li.active a .text {
+    opacity: 1;
+    transform: translateY(10px);
+}
+.indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background: #3fd9ff;
+    border-radius: 50%;
+    border: 6px solid var(--clr);
+    transition: 0.5s;    
+}
+.indicator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-right-radius: 20px;
+    box-shadow: 1px -10px 0 0 var(--clr);
+}
+.indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-top-left-radius: 20px;
+    box-shadow: -1px -10px 0 0 var(--clr);
+}
+
+.navigation ul li:nth-child(1).active ~ .indicator {
+    transform: translateX(calc(70px * 0));
+}
+.navigation ul li:nth-child(2).active ~ .indicator {
+    transform: translateX(calc(70px * 1));
+}
+.navigation ul li:nth-child(3).active ~ .indicator {
+    transform: translateX(calc(70px * 2));
+}
+.navigation ul li:nth-child(4).active ~ .indicator {
+    transform: translateX(calc(70px * 3));
+}
+.navigation ul li:nth-child(5).active ~ .indicator {
+    transform: translateX(calc(70px * 4));
+}
+
+#boxTitle{
+    position: absolute;
+    font-size: 16pt;
+    font-weight: bolder;
+    text-align: center;
+    padding: 10px;
+}
+#boxParagraph{
+    position: absolute;
+    margin-top: 10%;
+    font-size: 8pt;
+    text-align: justify;
+    padding: 20px;
+}
+/* PROFILE SESSION */
+.profile{
+    display: inline-block;
+    margin-top: 20%;
+}
+.profilePic{
+    margin-left: 5%;
+    width: 100px;
+    height: 100px;
+    border: solid 0.5px #4b4b4b;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+.pProfile{
+    margin-top: 10%;
+    font-size: 8pt;
+    text-align: justify;
+    padding: 20px;
+}
+.p1{
+    margin-top: -35%;
+    margin-left: 30%;
+}
+.p2{
+    margin-top: -10%;
+    margin-left: 5%;
+}
+.anchorProfile{
+    text-decoration: none;
+    color: #00c4c4;
+}
+.anchorProfile:hover{ text-decoration: underline; }
+
+/* IMAGE SESSION */
+.image{
+    display: block;
+    margin-top: 30%;
+    visibility: hidden;
+}
+
+/* HIDING BULLETS OF THE LIST */
+.img{
+    list-style: none;
+    width: 150px;
+    height: 100px;
+    border: solid 1px #4b4b4b;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-in;
+}
+.img:hover{
+    transform: scale(1.75);
+}
+#boxImage1{
+    background: url(https://images.pexels.com/photos/892757/pexels-photo-892757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat;
+    background-position: 50% 50%;
+    background-size: 150px 100px;
+    margin-left: -55%;
+    margin-bottom: -40%;
+}
+#boxImage2{
+    background: url(https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat;
+    background-position: 50% 50%;
+    background-size: 150px 100px;
+    margin-top: -67%;
+    margin-left: 55%;
+}
+#boxImage3{
+    background: url(https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat;
+    background-position: 50% 50%;
+    background-size: 150px 100px;
+    margin-top: 15%;
+    margin-left: -55%;
+    margin-bottom: -40%;
+}
+#boxImage4{
+    background: url(https://images.pexels.com/photos/2265482/pexels-photo-2265482.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat;
+    background-position: 50% 50%;
+    background-size: 150px 100px;
+    margin-top: -67%;
+    margin-left: 55%;
+}
+/* BUTTON DELETE PHOTO*/
+.btnDelete{
+    padding: 2px 6px 2px 6px;
+    width: 20px;
+    height: 20px;
+    font-size: 7pt;
+    background: transparent;
+    border: transparent;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-left: 80%;
+    cursor: pointer;
+}
+.btnDelete:hover{ text-decoration: underline; }
+
+/* MESSAGE SESSION */
+.message{
+    margin-top: 45%;
+}
+#formBlock{
+    width: 300px;
+}
+#issueBlock, #messageBlock{
+    border-radius: 10px;
+    border: solid 0.5px rgba(0, 0, 0, 0.4);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 2%;
+}
+#cIssue, #cMessage{ margin-left: 8%; }
+.lblMessageBlock{
+    font-weight: bolder;
+    font-size: 9pt;
+    text-align: left;
+    margin-left: 10%;
+}
+input, textarea{
+    font-size: 8pt;
+    padding: 5px;
+    border: solid 0.5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+input#cIssue{
+    width: 250px;
+}
+input:hover, textarea:hover{
+    background-color: #f0f0f0;
+}
+textarea#cMessage{
+    width: 250px;
+    height: 80px;
+    resize: none;
+    text-align: justify;
+}
+#btnSend{
+    padding: 7px;
+    font-weight: bolder;
+    border: solid 1px #000;
+    border-radius: 15px;
+    box-sizing: border-box;
+    background-color: #004f63;
+    color: #fff;
+    margin-top: 2%;
+    margin-left: 40%;
+}
+#btnSend:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* SETTINGS SESSION */
+.settings{
+    width: 300px;
+    height: 300px;
+    margin-top: 25%;
+    border-top: solid 0.5px #222327;
+    /*border-bottom: solid 0.5px #222327;*/
+}
+.pSettings{
+    padding-top: 10px;
+    border-bottom: solid 0.5px #222327;
+    padding-bottom: 10px;
+    text-align: justify;
+    font-size: 8pt;
+}
+.lblSettings{
+    font-weight: bolder;
+    font-size: 10pt;
+    margin-left: 5%;
+}
+
+.pNightMode{ padding-top: 5px; }
+.lblNightMode{ margin-right: 31%; }
+#btnNightMode{ width: 3rem; }
+
+/* FONT SIZE SETTING*/
+.lblFontSize{ margin-right: 35%; }
+#btnApplySize{
+    padding: 5px;
+    font-weight: bolder;
+    font-size: 8pt;
+    border: solid 0.5px #000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #004f63;
+    color: #fff;
+}
+#btnApplySize:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* HIGH CONTRAST SETTING */
+.lblContrast{ margin-right: 25%; }
+#btnContrast{ width: 3rem; }
+/* COLOR THEME */
+.lblColorTheme{ margin-right: 35%; }
+#colorSelector{
+    padding: 5px;
+    border-radius: 5px;
+}
+/* STATUS */
+.lblStatus{ margin-right: 50%; }
+#btnStatus{ 
+    padding: 5px;
+    font-weight: bolder;
+    font-size: 8pt;
+    border: solid 0.5px #000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #006308;
+    color: #fff;
+}
+#btnStatus:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

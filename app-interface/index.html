@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple App Interface</title>
+    <link rel="stylesheet" type="text/css" href="css/style-menu-test.css">
+</head>
+<body onload="showHome()">
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="#" onclick="showHome()" id="home">
+                    <span class="icon">
+                        <ion-icon name="home"></ion-icon>
+                    </span>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#" onclick="showProfile()" id="profile">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#" onclick="showMessage()" id="message">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <span class="text">Message</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#" onclick="showPhotos()" id="photos">
+                    <span class="icon">
+                        <ion-icon name="camera"></ion-icon>
+                    </span>
+                    <span class="text">Photos</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#" onclick="showSettings()" id="setting">
+                    <span class="icon">
+                        <ion-icon name="settings"></ion-icon>
+                    </span>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <!-- Display above from the menu -->
+    <div class="boxContent">
+        <h1 id="boxTitle">Welcome to the app</h1>
+        <p id="boxParagraph"></p>
+        <!-- DIVs for each tab from the app -->
+        <div class="profile">
+            <img class="profilePic" src="https://user-images.githubusercontent.com/72031181/157279366-f55c6ee7-cdc1-4754-831d-da8f678d52ad.jpg" alt="my-profile-picture">
+            <p class="pProfile p1">
+                My name is Lucas. I am a 22 year-old guy studying some technologies such as JavaScript and Node JS. What do you thing about this simple app? You can send me a message at anytime.
+            </p><br>
+            <p class="pProfile p2"> 
+                <u><strong>Contact</strong></u>:<br>
+                 - <strong>E-mail:</strong> lucasbarrosprofessional@gmail.com<br>
+                 - <strong>LinkedIn:</strong> <a class="anchorProfile" href="https://www.linkedin.com/in/lucasbarrosprofessional/" target="_blank">Meu Perfil no LinkedIn</a><br>
+                 - <strong>GitHub:</strong> <a class="anchorProfile" href="https://github.com/DevInBuilding" target="_blank">DevInBuilding</a>
+            </p>
+        </div>
+        <div class="message">
+            <div id="formBlock" mailto="lucasbarrosprofessional@gmail.com">
+                <fieldset id="issueBlock">
+                    <legend class="lblMessageBlock">Issue</legend>
+                    <input type="text" name="tIssue" id="cIssue" minlength="10" maxlength="30" size="30" placeholder="Type the issue...">
+                </fieldset>
+                <fieldset id="messageBlock">
+                    <legend class="lblMessageBlock">Message</legend>
+                    <textarea name="tMessage" id="cMessage" cols="20" rows="5" minlength="20" maxlength="500" placeholder="In here you can enter your message..."></textarea>
+                </fieldset>
+                <!-- Button Send Message -->
+                <button type="submit" id="btnSend" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+        <div class="image">
+            <ul>
+                <li class="img" id="boxImage1"><button type="submit" class="btnDelete btnD1" onclick="deletePhoto(`img1`)">❌</button></li>
+                <li class="img" id="boxImage2"><button type="submit" class="btnDelete btnD2" onclick="deletePhoto(`img2`)">❌</button></li>
+                <li class="img" id="boxImage3"><button type="submit" class="btnDelete btnD3" onclick="deletePhoto(`img3`)">❌</button></li>
+                <li class="img" id="boxImage4"><button type="submit" class="btnDelete btnD4" onclick="deletePhoto(`img4`)">❌</button></li>
+            </ul>
+        </div>
+        <div class="settings">
+            <p class="pNightMode pSettings">
+                <label for="btnNightMode" class="lblNightMode lblSettings">Night Mode</label>
+                OFF <input type="range" name="tNightMode" id="btnNightMode" min="0" max="1" step="1" value="0" onclick="switchNightMode()"> ON
+            </p>
+            <p class="pFontSize pSettings">
+                <label for="cNumber" class="lblFontSize lblSettings">Font Size</label> 
+                <input type="number" name="tNumber" id="cNumber" min="8" max="10" value="8" list="num" onChange="setFontSize('number', 'value');">
+                <button type="submit" id="btnApplySize" onclick="applyFontSize()">OK</button>
+            </p>
+            <p class="pHighContrast pSettings">
+                <label for="cContrast" class="lblContrast lblSettings">High Contrast</label>
+                OFF <input type="range" name="tContrast" id="btnContrast" min="0" max="1" step="1" value="0" onclick="switchHighContrast()"> ON
+            </p>
+            <p class="pColorThemes pSettings">
+                <label for="color" class="lblColorTheme lblSettings"><b><code>Font Color</code></b></label>
+                <select onChange="setFontColor();" id="colorSelector">
+                    <option value="black">Black</option>
+                    <option value="green">Green</option>
+                    <option value="gray">Gray</option>
+                    <option value="darkblue">Darkblue</option>
+                    <option value="red">Red</option>
+                </select>
+            </p>
+            <p class="pStatus pSettings">
+                <label for="btnStatus" class="lblStatus lblSettings">Status</label>
+                <button id="btnStatus" type="submit" onclick="seeStatus()">See Status</button>
+            </p>
+        </div>
+    </div>
+    <script src="javascript/functions-menu-test.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+</html>
